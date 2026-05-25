@@ -60,7 +60,7 @@ export const verifySignature = async (
   nonce: string
 ): Promise<{ user: any; accessToken: string; refreshToken: string }> => {
   // Normalize wallet address
-  const normalizedAddress = ethers.getAddress(walletAddress);
+  const normalizedAddress = ethers.utils.getAddress(walletAddress);
 
   // Find and validate nonce
   const storedNonce = await prisma.authNonce.findFirst({
